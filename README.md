@@ -29,13 +29,13 @@ Auf dem Webservice würde man dann z.b. auf POST bzw. PUT Requests hören und di
 
 Docker Container für InfluxDB:
 
-```
+```shell script
 sudo docker run --name influxdb -d -p 8086:8086 influxdb:2.0.4  # pull the image, and make a new docker container with this image
 sudo docker start influxdb                                      # to start it if not already started via run
 sudo docker ps -a                                               # to see if its running 
 ```
 
-```
+```shell script
 sudo docker run -d -p 3000:3000 --name grafana grafana/grafana
 sudo docker start influxdb                                      # to start it if not already started via run
 sudo docker ps -a                                               # to see if its running
