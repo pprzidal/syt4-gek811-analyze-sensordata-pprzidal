@@ -25,6 +25,21 @@ Die Zusammenfassung und Übersicht der verwendeten Tools und Technologien kann i
 Da der ESP8266 eine WiFi Funktion hat ist es möglich auf dem raspi einen Webservice rennen zu lassen (z.b. mit [``node.js``](https://nodejs.org/docs/latest-v10.x/api/) und [``express``](https://expressjs.com/de/) oder ``django``).
 Auf dem Webservice würde man dann z.b. auf POST bzw. PUT Requests hören und diese dann in die influxDB Datenbank INSERTen (das würde aus node.js mit [``influxdb-nodejs``](https://www.npmjs.com/package/influxdb-nodejs) oder [``influx``](https://www.npmjs.com/package/influx) gehen).
 
+### docker influxdb & grafana
+
+Docker Container für InfluxDB:
+
+```
+sudo docker run --name influxdb -d -p 8086:8086 influxdb:2.0.4  # pull the image, and make a new docker container with this image
+sudo docker start influxdb                                      # to start it if not already started via run
+sudo docker ps -a                                               # to see if its running 
+```
+
+```
+sudo docker run -d -p 3000:3000 --name grafana grafana/grafana
+sudo docker start influxdb                                      # to start it if not already started via run
+sudo docker ps -a                                               # to see if its running
+```
 
 ## Quellen
 
