@@ -13,10 +13,30 @@ Die Zusammenfassung und Übersicht der verwendeten Tools und Technologien kann i
 * SBC, Raspberry Pi 4 Model B, [Datenblatt](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2711/rpi_DATA_2711_1p0_preliminary.pdf)
 * MCU, NodeMCU ESP8266, [Datenblatt](https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf)
 * Analoger Temperatursensor, tmp36, [Datenblatt](https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)
+* female to male jumper wires (eben weil der Raspi male pins auf diesem GPIO Header hat und wir von dort auf ein Steckbrett gehen wollen)
 
 ### Plan
 
 #### Übertragung via Bus
+
+Da es recht einfach ist und für dieses Beispiel vielleicht auch gar nicht so schlecht ist könnte UART gewählt werden. Hierzu braucht man nur 3 Leitungen RX, TX und GND.
+Außerdem muss man auf dem Raspi die UART Schnittstellen aktivieren. Das geht via ``sudo raspi-config``.
+
+``sudo raspi-config`` -> ``Interface Options`` -> ``Serial Port`` -> ``No`` -> ``Yes``
+
+Dann wird rebooted und mittels ``ls -la /dev/`` die ``serial0 bzw. serial1`` geben.
+
+Mit ``cat /boot/overlays/README``:
+
+Hier sieht man welche Funktionen auf welchen Pins laufen:
+
+![bla](img/bild1.png)
+
+Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glücklicherweise gibt es hierfür auch ein Programm welches ``pinout`` heißt.
+
+![blub](img/bild2.png)
+
+Man sieht das die 3 Pins die wir benötigen also gleich nebeneinander liegen. Auf dem ESP8266 hab ich einfach D7 (RX), D8(TX) und GND verwendet. Dazu noch die SoftwareSerial Library die in der Arduino IDE per Default schon dabei ist.
 
 <!-- TODO: noch über die Implementierung via UART, SPI, I2C, CAN usw.. schreiben -->
 
@@ -37,7 +57,7 @@ sudo docker ps -a                                               # to see if its 
 
 ```shell script
 sudo docker run -d -p 3000:3000 --name grafana grafana/grafana
-sudo docker start influxdb                                      # to start it if not already started via run
+sudo docker start grafana                                      # to start it if not already started via run
 sudo docker ps -a                                               # to see if its running
 ```
 
