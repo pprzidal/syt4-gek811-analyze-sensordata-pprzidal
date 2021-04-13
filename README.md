@@ -38,6 +38,8 @@ Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glück
 
 Man sieht das die 3 Pins die wir benötigen also gleich nebeneinander liegen. Auf dem ESP8266 hab ich einfach D7 (RX), D8(TX) und GND verwendet. Dazu noch die SoftwareSerial Library die in der Arduino IDE per Default schon dabei ist.
 
+Auf dem raspi kann man mittels python auf die Seriellen Schnittstellen zugreifen.
+
 <!-- TODO: noch über die Implementierung via UART, SPI, I2C, CAN usw.. schreiben -->
 
 #### Übertragung via WiFi
