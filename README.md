@@ -8,6 +8,8 @@ Die Zusammenfassung und Übersicht der verwendeten Tools und Technologien kann i
 
 ## Implementierung
 
+<!-- TODO: ganz schlecht die bilder ins repo zu geben -->
+
 ### Materialien
 
 * SBC, Raspberry Pi 4 Model B, [Datenblatt](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2711/rpi_DATA_2711_1p0_preliminary.pdf)
@@ -35,6 +37,10 @@ Hier sieht man welche Funktionen auf welchen Pins laufen:
 Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glücklicherweise gibt es hierfür auch ein Programm welches ``pinout`` heißt.
 
 ![blub](img/bild2.png)
+
+Das finale Wireing sieht dann so aus:
+
+![bild6](img/bild6.jpg)
 
 Man sieht das die 3 Pins die wir benötigen also gleich nebeneinander liegen. Auf dem ESP8266 hab ich einfach D7 (RX), D8(TX) und GND verwendet. Dazu noch die SoftwareSerial Library die in der Arduino IDE per Default schon dabei ist.
 
