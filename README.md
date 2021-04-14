@@ -40,13 +40,20 @@ Man sieht das die 3 Pins die wir benötigen also gleich nebeneinander liegen. Au
 
 Auf dem raspi kann man mittels python auf die Seriellen Schnittstellen zugreifen. siehe [inserter.py](src/raspi/inserter.py)
 
-Hier muss eig. nur mehr eine Library zum connecten zu influxdb.
+<!-- TODO: venv weil sonst ist da borko böse -->
+
+Hier muss eig. nur mehr eine Library zum connecten zu influxdb. Also hab ich mal geschaut welche python version ich am raspi hab:
+
+```
+python --version        # hat 2.7.16 ausgegeben
+pip2 install influxdb   # um das package influxdb zu installieren.
+```
 
 <!-- TODO: noch über die Implementierung via UART, SPI, I2C, CAN usw.. schreiben -->
 
 #### Übertragung via WiFi
 
-Da der ESP8266 eine WiFi Funktion hat ist es möglich auf dem raspi einen Webservice rennen zu lassen (z.b. mit [``node.js``](https://nodejs.org/docs/latest-v10.x/api/) und [``express``](https://expressjs.com/de/) oder ``django``).
+Da der ESP8266 eine WiFi Funktion hat ist es möglich auf dem raspi einen Webservice rennen zu lassen (z.b. mit [``node.js``](https://nodejs.org/docs/latest-v10.x/api/) und [``express``](https://expressjs.com/de/) oder ``django`` mit python).
 Auf dem Webservice würde man dann z.b. auf POST bzw. PUT Requests hören und diese dann in die influxDB Datenbank INSERTen (das würde aus node.js mit [``influxdb-nodejs``](https://www.npmjs.com/package/influxdb-nodejs) oder [``influx``](https://www.npmjs.com/package/influx) gehen).
 
 ### docker influxdb & grafana
