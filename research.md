@@ -20,7 +20,7 @@ Die Reichweite ist bei allen ca. gleich lang. [1]
 
 # Wie können Daten aggregiert werden? Welche Anforderungen müssen dabei beachtet werden?
 
-Aufgrund der begrenzten Speichergröße würde es Sinn machen erst dann einen Datensatz zu speichern wenn er anders ist als der Vorherige. Damit würde man die redundanz verhindert so dass z.b. 15 Datensätze hintereinander 21.0 °C sind.
+Aufgrund der begrenzten Speichergröße würde es Sinn machen erst dann einen Datensatz zu speichern wenn er anders ist
 
 # Wie können zeitabhängige Messdaten leicht gespeichert und verarbeitet werden?
 

@@ -44,7 +44,7 @@ Das finale Wireing sieht dann so aus:
 
 Man sieht das die 3 Pins die wir benötigen also gleich nebeneinander liegen. Auf dem ESP8266 hab ich einfach D7 (RX), D8(TX) und GND verwendet. Dazu noch die SoftwareSerial Library die in der Arduino IDE per Default schon dabei ist.
 
-Auf dem raspi kann man mittels python auf die Seriellen Schnittstellen zugreifen. siehe [inserter.py](src/raspi/inserter.py)
+Auf dem raspi kann man mittels python auf die Seriellen Schnittstellen zugreifen. siehe [inserter.py](src/raspi/UART/inserter.py)
 
 Hier muss eig. nur mehr eine Library zum connecten zu influxdb.
 
@@ -64,6 +64,25 @@ deactivate
 
 Da der ESP8266 eine WiFi Funktion hat ist es möglich auf dem raspi einen Webservice rennen zu lassen (z.b. mit [``node.js``](https://nodejs.org/docs/latest-v10.x/api/) und [``express``](https://expressjs.com/de/) oder ``django`` mit python).
 Auf dem Webservice würde man dann z.b. auf POST bzw. PUT Requests hören und diese dann in die influxDB Datenbank INSERTen (das würde aus node.js mit [``influxdb-nodejs``](https://www.npmjs.com/package/influxdb-nodejs) oder [``influx``](https://www.npmjs.com/package/influx) gehen).
+
+Als erstes sollte nodejs installiert werden (hab hier einfach das genommen was im default apt repo drin ist). Außerdem macht der Node Package Manager sinn:
+
+```
+sudo apt install -y nodejs npm
+```
+
+Nun braucht man nur noch express.js sowie influx. Also:
+
+```
+npm install express --save
+npm install influx --save
+```
+
+Das skript kann man dann z.b. so aufrufen:
+
+```
+node <filename> <ip of net interface> <port>
+```
 
 ### docker influxdb & grafana
 
