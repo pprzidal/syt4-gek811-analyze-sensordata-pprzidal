@@ -1,5 +1,4 @@
 ## Research
-> Hier sollen die Eckpunkte der Fragestellungen ausgearbeitet werden.
 
 # Welche Probleme können bei der Verwendung von Sensoren auftreten?
 
@@ -19,4 +18,20 @@ z.b. so ein Monitoring Dienste wie Grafana.
 
 ## Speichergröße
 
-## Stromverbrauch
+Naja. Was die beiden verbindet ist das sie beide flüchtige und nicht flüchtige speicher haben. Beim uC wäre das SRAM und Flash bzw. wenn vorhanden EEPROM. Beim SBC RAM und halt die microSD Karte beim Raspi 4 Model B.
+Nur aufjedenfall sind diese flüchtigen bzw. nicht flüchtigen speicher von der Speichergröße her begrenzt.
+
+Beispiel:
+Beim Arduino Uno (ATmega328P) hat der EEPROM eine größe von 1 KiB (1 * 2^10 = 1024 B).
+Auf dem Uno hat ein double eine size von 4 B (übrigens genausoviel wie ein float auf dem Uno) [1]. Könnte man natürlich auch mit ```sizeof(double)``` herausfinden.
+
+1024 B / 4 B = 256
+
+Das würde bedeuten das man 256 doubles in dem EEPROM vom Arduino hineinspeichern kann.
+Beim Raspi ist die microSD Karte auch nicht unbegrenzt.
+
+## Stromversorgung
+
+Ein Grund wieso man bei einer Messstation keinen SBC verwenden sollte ist natürlich der Stromverbrauch. Ein Raspberry Pi verbraucht ca. 4 Watt (Tastatur und Maus angeschlossen, Raspberry Pi 4 Model B, mit GUI).
+Es wäre also besser einen uC zu verwenden der deutlich weniger Strom verbraucht. Sehr oft ist es auch möglich die uC in unterschiedliche Sleep Modes zu bringen wo sie noch sparsamer sind.
+
