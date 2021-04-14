@@ -26,7 +26,7 @@ void loop() {
     http.begin("http://192.168.0.2:3001/"); // TODO: port und IP hardcoden ist ziemlich schlecht. Besser wäre wenn man es z.b. über Serial immer wieder ändern könnte
     http.addHeader("Content-Type", "application/json");
     String s = "{\"temperature\": "; //TODO: das manuelle zusammenbasteln der json ist schlecht. Besser eine Library dafür suchen
-    s.concat(lastMeasure);
+    s.concat(a);
     s.concat("}");
     int code = http.POST(s);
     http.end();
