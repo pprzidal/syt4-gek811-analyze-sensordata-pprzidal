@@ -34,11 +34,11 @@ Hier sieht man welche Funktionen auf welchen Pins laufen:
 
 ![bla](img/bild1.png)
 
-Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glücklicherweise gibt es hierfür auch ein Programm welches ``pinout`` heißt.
+Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glücklicherweise gibt es hierfür auch ein Programm welches ``pinout`` heißt.Allerdings muss dieses gegebenenfalls noch installiert werden. Daher hab ich ``dpkg -S pinout`` gemacht und gesehen dass das package ``python3-gpiozero`` bzw. ``python-gpiozero`` dafür installiert werden muss. [8]
 
 ![blub](img/bild2.png)
 
-Das finale Wireing sieht dann so aus:
+ Das finale Wireing sieht dann so aus:
 
 ![bild6](img/bild6.jpg)
 
@@ -134,3 +134,5 @@ Und wenn man dann noch eine Query macht sieht man z.b. so einen Graph:
 [6]     "npm influxdb-nodejs";[link](https://www.npmjs.com/package/influxdb-nodejs) ;12.04.2021
 
 [7]     "npm influx";[link](https://www.npmjs.com/package/influx) ;12.04.2021
+
+[8]     "linux determine which binary is installed via which package";[link](https://superuser.com/questions/146875/command-to-find-the-source-package-of-a-binary) ;15.04.2021
