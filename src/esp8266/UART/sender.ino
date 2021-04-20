@@ -15,7 +15,9 @@ void setup() {
 
 void loop() {
   int a = analogRead(A0);
-  if(a > (lastMeasure + THRESHOLD) || a < (lastMeasure - THRESHOLD)) mySerial.println((((a * 3.3 / 1023.0) - 0.5) * 100));
-  lastMeasure = a;
+  if(a > (lastMeasure + THRESHOLD) || a < (lastMeasure - THRESHOLD)) {
+    mySerial.println((((a * 3.3 / 1023.0) - 0.5) * 100));
+    lastMeasure = a;
+  }
   delay(5000);
 }

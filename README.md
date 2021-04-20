@@ -34,11 +34,12 @@ Hier sieht man welche Funktionen auf welchen Pins laufen:
 
 ![bla](img/bild1.png)
 
-Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glücklicherweise gibt es hierfür auch ein Programm welches ``pinout`` heißt.Allerdings muss dieses gegebenenfalls noch installiert werden. Daher hab ich ``dpkg -S pinout`` gemacht und gesehen dass das package ``python3-gpiozero`` bzw. ``python-gpiozero`` dafür installiert werden muss. [8]
+Und dann sollte man noch schauen wo diese Ports auf dem GPIO Header sind. Glücklicherweise gibt es hierfür auch ein Programm welches ``pinout`` heißt. 
+Allerdings muss dieses gegebenenfalls noch installiert werden. Daher hab ich ``dpkg -S pinout`` gemacht und gesehen dass das package ``python3-gpiozero`` bzw. ``python-gpiozero`` dafür installiert werden muss. [8]
 
 ![blub](img/bild2.png)
 
- Das finale Wireing sieht dann so aus:
+Das finale Wireing sieht dann so aus:
 
 ![bild6](img/bild6.jpg)
 
@@ -58,7 +59,9 @@ pip install pyserial
 deactivate
 ```
 
-<!-- TODO: noch über die Implementierung via UART, SPI, I2C, CAN usw.. schreiben -->
+#### Flash vs RAM bei Strins
+
+Wenn man Strings in einem Arduino Sketch hat dann kann man diese mit dem ``F()`` Makro umschließen um RAM zu sparen. [9]
 
 #### Übertragung via WiFi
 
@@ -70,6 +73,10 @@ Als erstes sollte nodejs installiert werden (hab hier einfach das genommen was i
 ```
 sudo apt install -y nodejs npm
 ```
+
+#### nodejs 10.x EOL
+
+Der Support für NodeJS 10.x endet mit April 2021. Ich hab es hier aber noch verwendet was natürlich recht schlecht ist. [10] 
 
 Nun braucht man nur noch express.js sowie influx. Also:
 
@@ -136,3 +143,7 @@ Und wenn man dann noch eine Query macht sieht man z.b. so einen Graph:
 [7]     "npm influx";[link](https://www.npmjs.com/package/influx) ;12.04.2021
 
 [8]     "linux determine which binary is installed via which package";[link](https://superuser.com/questions/146875/command-to-find-the-source-package-of-a-binary) ;15.04.2021
+
+[9]     "F() in Arduino"; [link](https://www.arduino.cc/reference/de/language/variables/utilities/progmem/) ; 20.04.2021
+
+[10]    "nodejs 10.x EOL"; [link](https://twitter.com/trott/status/1383107449859674117) ; 20.04.2021
