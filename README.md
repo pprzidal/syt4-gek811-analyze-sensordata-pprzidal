@@ -59,7 +59,7 @@ pip install pyserial
 deactivate
 ```
 
-#### Flash vs RAM bei Strins
+#### Flash vs RAM bei Strings
 
 Wenn man Strings in einem Arduino Sketch hat dann kann man diese mit dem ``F()`` Makro umschließen um RAM zu sparen. [9]
 
