@@ -116,6 +116,17 @@ Hier sieht man das 2 Container im selben Netzwerk sind. Der influxdb hat die IP 
 Wenn man also von einem Browser in dem Netwerk aus nun die IP von dem Raspi auf Port 3000 anfragt bekommt man die Antwort von Grafana.
 Die default credentials sind uname: admin, pw: admin. Ich hab Sie auf uname: admin, pw: grafana4syt8gek geändert.
 
+# Passwort von Grafana zurücksetzen
+
+Wenn man ein Idiot ist und das PW vergisst muss man sich in den Grafana Container verbinden:
+
+```
+sudo docker exec -it grafana bash
+grafana-cli --homepath="/usr/share/grafana" admin reset-admin-password mynewpassword
+```
+
+Das neue Passwort ist dann "mynewpassword".
+
 Dann muss man eine neue Data Source dazugeben. Das waren meine Einstellungen:
 
 ![bild3](img/bild3.png)
